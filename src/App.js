@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import Berkant from "./components/Berkant";
 
 function App() {
+  const deneme = "props testi denemesi";
+
+  const clicked=()=>{
+    console.log("sen tıkladın !");
+  }
+
+  const array=[
+    {name:'ali first', id:0 },
+    {name:'ahmet second', id:1},
+    {name:'mehmet third', id:2}
+  ]
+
+
+
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Berkant props={deneme} />
+     
+      <button onClick={clicked}>Button</button>
+
+{array.map((item,id) => 
+<div key={id}>{item.name}</div>
+)}
+
+
+
     </div>
   );
 }
