@@ -1,35 +1,20 @@
-import Berkant from "./components/Berkant";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
 
 function App() {
-  const deneme = "props testi denemesi";
-
-  const clicked=()=>{
-    console.log("sen tıkladın !");
-  }
-
-  const array=[
-    {name:'ali first', id:0 },
-    {name:'ahmet second', id:1},
-    {name:'mehmet third', id:2}
-  ]
-
-
-
-
-  
   return (
-    <div className="App">
-      <Berkant props={deneme} />
-     
-      <button onClick={clicked}>Button</button>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-{array.map((item,id) => 
-<div key={id}>{item.name}</div>
-)}
-
-
-
-    </div>
+          <Route  path="/detail/:id" element={<Detail/>}/>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
